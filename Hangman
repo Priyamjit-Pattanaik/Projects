@@ -1,0 +1,100 @@
+# Welcome to Python Compiler! Press Ctrl+Enter to run
+import random
+word_list= ["Bribe"]
+mystery=random.choice(word_list).lower()
+game_finish=False
+correct_letter=[]
+lives=7
+range=-1
+HANGMANPICS = ['''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========''']
+while game_finish is not True: 
+  display=""
+  guess=input("Guess a letter").lower()
+  for letter in mystery:
+    if guess==letter:
+      display+=letter
+      correct_letter.append(guess)
+      
+    elif letter in correct_letter:
+      display+=letter
+   
+    else:
+      display+="_"
+
+  print(display)
+  if "_"not in display:
+    game_finish=True
+    print("you won")
+  if guess not in mystery:
+    lives-=1
+    range+=1
+    print(HANGMANPICS[range])
+    print(lives)
+  if lives==0:
+    game_finish=True
+    print("you lost")
+    
+    
+
+
+
+      
+  
+
+
+  
+
+
+    
+
+
+  
